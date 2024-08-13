@@ -44,9 +44,6 @@ Example: `:TSInstall python`
 
 #### For my configuration install in Mason
 
-◍ lua-language-server
-◍ pyright
-◍ ruff-lsp
-◍ stylua
+◍ lua-language-server ◍ pyright ◍ ruff-lsp ◍ stylua 
 
 
