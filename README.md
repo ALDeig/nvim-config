@@ -14,13 +14,6 @@ brew install npm
 mv ~/.config/nvim ~/.config/nvim.bak
 ```
 
-#### Clean neovim folders (Optional but recommended)
-```bash
-mv ~/.local/share/nvim ~/.local/share/nvim.bak
-mv ~/.local/state/nvim ~/.local/state/nvim.bak
-mv ~/.cache/nvim ~/.cache/nvim.bak
-```
-
 #### Clone the repository
 ```bash
 git clone https://github.com/ALDeig/nvim-config.git ~/.config/nvim
