@@ -112,7 +112,7 @@ M.ruff_lsp = {
     -- Any extra CLI arguments for `ruff` go here.
     args = {
       -- "--select=PL,D,C4,E,G,W,F,B,SIM,UP,N,I,ASYNC,S,PTH,ARG,RUF",
-      "--ignore=ANN201,ANN003,COM812,CPY,D100,D102,D103,D107,D205,DTZ001,ERA001,RET502,RUF001,RUF002,RUF003",
+      "--ignore=ANN201,ANN003,COM812,CPY,D100,D102,D103,D107,D205,DOC201,DOC501,DOC502,DTZ001,ERA001,RET502,RUF001,RUF002,RUF003",
       "--select=ALL",
       "--line-length=88",
       "--preview",
