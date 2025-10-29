@@ -76,10 +76,14 @@ require("kanagawa").setup({
 			DiagnosticVirtualTextInfo = makeDiagnosticColor(theme.diag.info),
 			DiagnosticVirtualTextWarn = makeDiagnosticColor(theme.diag.warning),
 			DiagnosticVirtualTextError = makeDiagnosticColor(theme.diag.error),
-			Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+			Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1, blend = vim.o.pumblend }, -- add `blend = vim.o.pumblend` to enable transparency
 			PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
 			PmenuSbar = { bg = theme.ui.bg_m1 },
 			PmenuThumb = { bg = theme.ui.bg_p2 },
+			-- Assign a static color to strings
+			String = { fg = colors.palette.carpYellow, italic = true },
+			-- theme colors will update dynamically when you change theme!
+			SomePluginHl = { fg = colors.theme.syn.type, bold = true },
 		}
 		-- return {
 		-- 	-- Assign a static color to strings
@@ -91,4 +95,4 @@ require("kanagawa").setup({
 })
 
 -- vim.cmd([[colorscheme tokyonight-moon]])
-vim.cmd("colorscheme kanagawa-dragon")
+vim.cmd("colorscheme kanagawa-wave")

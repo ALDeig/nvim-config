@@ -44,7 +44,7 @@ return {
 		-- "ibhagwan/fzf-lua", -- for file_selector provider fzf
 		-- "stevearc/dressing.nvim", -- for input provider dressing
 		"folke/snacks.nvim", -- for input provider snacks
-		"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+		"echasnovski/mini.icons", -- or nvim-tree/nvim-web-devicons
 		-- "zbirenbaum/copilot.lua", -- for providers='copilot'
 		{
 			-- support for image pasting
