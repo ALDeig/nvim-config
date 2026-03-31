@@ -5,7 +5,8 @@ return {
   cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
   build = ":TSUpdate",
   opts = {
-    ensure_installed = { "lua", "printf", "luadoc", "vim", "vimdoc", "python" },
+    ensure_installed = { "lua", "printf", "luadoc", "vim", "vimdoc", "python", "typescript", "javascript", "html", "css", "proto", "yaml", "markdown", "markdown_inline" },
+    auto_install = true,
     highlight = {
       enable = true,
       use_languagetree = true,

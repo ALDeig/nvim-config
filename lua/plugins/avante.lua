@@ -21,14 +21,15 @@ return {
 		provider = "openai",
 		providers = {
 			claude = {
-				model = "claude-sonnet-4-0",
+				model = "claude-opus-4-5",
+				-- auth_type = "max",
 			},
 			openai = {
-				model = "gpt-4.1",
-				-- model = "gpt-5-2025-08-07",
-				-- extra_request_body = {
-				-- 	temperature = 1,
-				-- },
+				-- model = "gpt-4.1",
+				model = "gpt-5.2",
+				extra_request_body = {
+					temperature = 1,
+				},
 			},
 			-- },
 		},
@@ -40,7 +41,6 @@ return {
 		--- The below dependencies are optional,
 		-- "echasnovski/mini.pick", -- for file_selector provider mini.pick
 		"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-		"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
 		-- "ibhagwan/fzf-lua", -- for file_selector provider fzf
 		-- "stevearc/dressing.nvim", -- for input provider dressing
 		"folke/snacks.nvim", -- for input provider snacks
@@ -68,6 +68,7 @@ return {
 			"MeanderingProgrammer/render-markdown.nvim",
 			opts = {
 				file_types = { "markdown", "Avante" },
+				latex = { enabled = false },
 			},
 			ft = { "markdown", "Avante" },
 		},

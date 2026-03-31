@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
+		-- tag = "*",
 		-- or                              , branch = '0.1.x'
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
@@ -21,8 +21,8 @@ return {
 					},
 				},
 			}
+			require("telescope").setup(options)
 			require("telescope").load_extension("fzf")
-			return options
 		end,
 	},
 }
