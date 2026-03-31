@@ -1,6 +1,12 @@
 vim.opt.encoding = "utf-8"
 vim.opt.wrap = false
 
+-- Отключить неиспользуемые провайдеры
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_python3_provider = 0
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -16,22 +22,22 @@ vim.opt.isfname:append("@-@")
 -- views can only be fully collapsed with the global statusline
 vim.opt.laststatus = 3
 
--- Fold Settings
+-- Fold Settings (treesitter-based)
 vim.opt.fillchars = { fold = " " }
-vim.opt.foldmethod = "indent"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldenable = false
 vim.opt.foldlevel = 99
 vim.g.markdown_folding = 1 -- enable markdown folding
 
-
--- with treesitter
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
--- vim.cmd([[ set nofoldenable]])
--- vim.opt.foldlevel = 99
-
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = "88"
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "python" },
+	callback = function()
+		vim.opt_local.colorcolumn = "88"
+	end,
+})
 
 -- Indent Settings
 vim.opt.expandtab = true
@@ -52,32 +58,12 @@ vim.opt.mousefocus = true
 vim.opt.termguicolors = true
 
 -- установка табуляции для разных типов файлов
-local function set_tabulation()
-    if vim.bo.filetype == "python" then
-        vim.opt.tabstop = 4
-        vim.opt.shiftwidth = 4
-        vim.opt.softtabstop = 4
-    else
-        vim.opt.tabstop = 2
-        vim.opt.shiftwidth = 2
-        vim.opt.softtabstop = 2
-    end
-end
-vim.api.nvim_create_autocmd(
-    "BufEnter",
-    { callback = set_tabulation }
-)
-
--- Fold Settings variants
--- vim.api.nvim_create_autocmd({ "FileType" }, {
---   callback = function()
---     if require("nvim-treesitter.parsers").has_parser() then
---       vim.opt.foldmethod = "expr"
---       vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
---     else
---       vim.opt.foldmethod = "indent"
---     end
---   end,
--- })
--- vim.opt.set("nofoldenable")
-
+-- Python покрыт глобальным дефолтом (4)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "lua", "javascript", "typescript", "html", "css", "json", "yaml" },
+	callback = function()
+		vim.bo.tabstop = 2
+		vim.bo.shiftwidth = 2
+		vim.bo.softtabstop = 2
+	end,
+})
