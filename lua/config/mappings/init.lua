@@ -1,9 +1,6 @@
 local map = vim.keymap.set
 
 -------------GLOBAL-------------
--- Устанавливает пробел в качестве лидера команд
-vim.g.mapleader = " "
-
 -- В режиме вставки (i) при вводе "jk" происходит выход в нормальный режим
 map("i", "jk", "<ESC>", { desc = "Escape" })
 -- В нормальном режиме (n) при нажатии Ctrl+q выполняется команда выхода из Vim
@@ -97,9 +94,19 @@ map("n", "H", vim.cmd.BufferPrevious, { desc = "Buffer previous" })
 map("n", "L", vim.cmd.BufferNext, { desc = "Buffer next" })
 map("n", "<leader>x", vim.cmd.BufferClose, { desc = "Buffer close" })
 
--------------TERMINAL-------------
-map("t", "<C-h>", "<C-\\><C-N>", { desc = "Exit terminal mode" })
-
-require("config.mappings.neotree")
 require("config.mappings.gitsigns")
-require("config.mappings.terminal").setup()
+
+-------------TERMINAL-------------
+map("t", "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Terminal navigate left" })
+map("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Terminal navigate down" })
+map("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Terminal navigate up" })
+map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+map("t", "<C-q>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+	callback = function()
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+		vim.opt_local.signcolumn = "no"
+	end,
+})

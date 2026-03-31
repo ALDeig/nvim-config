@@ -20,7 +20,6 @@ return {
 					"lazy",
 					"lazyterm",
 					"mason",
-					"neo-tree",
 					"notify",
 					"toggleterm",
 					"Trouble",
