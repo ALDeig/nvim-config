@@ -58,10 +58,10 @@ require("gitsigns").setup({
 		-- map("n", "<leader>hq", gitsigns.setqflist)
 
 		-- Toggles
-		map("n", "<leader>tb", gitsigns.toggle_current_line_blame, {
+		map("n", "<leader>hb", gitsigns.toggle_current_line_blame, {
 			desc = "GitSigns Включить/выключить отображение blame текущей строки",
 		})
-		map("n", "<leader>tw", gitsigns.toggle_word_diff, {
+		map("n", "<leader>hw", gitsigns.toggle_word_diff, {
 			desc = "GitSigns Включить/выключить отображение diff на уровне слов",
 		})
 
