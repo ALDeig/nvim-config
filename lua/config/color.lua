@@ -1,40 +1,3 @@
--- require("tokyonight").setup({
--- 	on_colors = function(colors)
--- 		colors.hint = colors.orange
--- 		colors.error = "#ff0000"
--- 	end,
--- 	on_highlights = function(hl, c)
--- 		local prompt = "#2d3149"
--- 		hl.TelescopeNormal = {
--- 			bg = c.bg_dark,
--- 			fg = c.fg_dark,
--- 		}
--- 		hl.TelescopeBorder = {
--- 			bg = c.bg_dark,
--- 			fg = c.bg_dark,
--- 		}
--- 		hl.TelescopePromptNormal = {
--- 			bg = prompt,
--- 		}
--- 		hl.TelescopePromptBorder = {
--- 			bg = prompt,
--- 			fg = prompt,
--- 		}
--- 		hl.TelescopePromptTitle = {
--- 			bg = prompt,
--- 			fg = prompt,
--- 		}
--- 		hl.TelescopePreviewTitle = {
--- 			bg = c.bg_dark,
--- 			fg = c.bg_dark,
--- 		}
--- 		hl.TelescopeResultsTitle = {
--- 			bg = c.bg_dark,
--- 			fg = c.bg_dark,
--- 		}
--- 	end,
--- })
---
 require("kanagawa").setup({
 	colors = {
 		theme = {
@@ -52,9 +15,9 @@ require("kanagawa").setup({
 			return { fg = color, bg = c(color):blend(theme.ui.bg, 0.95):to_hex() }
 		end
 		return {
-			NormalFloat = { bg = "none" },
-			FloatBorder = { bg = "none" },
-			FloatTitle = { bg = "none" },
+			NormalFloat = { bg = theme.ui.bg_p1 },
+			FloatBorder = { bg = theme.ui.bg_p1, fg = theme.ui.fg_dim },
+			FloatTitle = { bg = theme.ui.bg_p1 },
 
 			-- Save an hlgroup with dark background and dimmed foreground
 			-- so that you can use it where your still want darker windows.
@@ -67,11 +30,11 @@ require("kanagawa").setup({
 			MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
 			TelescopeTitle = { fg = theme.ui.special, bold = true },
 			TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-			TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+			TelescopePromptBorder = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
 			TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-			TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+			TelescopeResultsBorder = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
 			TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-			TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+			TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.fg_dim },
 			DiagnosticVirtualTextHint = makeDiagnosticColor(theme.diag.hint),
 			DiagnosticVirtualTextInfo = makeDiagnosticColor(theme.diag.info),
 			DiagnosticVirtualTextWarn = makeDiagnosticColor(theme.diag.warning),
@@ -94,5 +57,4 @@ require("kanagawa").setup({
 	end,
 })
 
--- vim.cmd([[colorscheme tokyonight-moon]])
 vim.cmd("colorscheme kanagawa-wave")
