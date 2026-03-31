@@ -8,8 +8,11 @@ M.pyright = {
 	},
 	python = {
 		analysis = {
+			indexing = true,
+			autoImportCompletions = true,
+			diagnosticMode = "workspace",
 			diagnosticSeverityOverrides = {
-				-- TODO: отключить настройки, дублирующиеся с Ruff
+				-- Диагностики, пересекающиеся с Ruff, установлены в "none"
 				analyzeUnannotatedFunctions = true,
 				strictParameterNoneValue = true,
 				enableTypeIgnoreComments = true,
