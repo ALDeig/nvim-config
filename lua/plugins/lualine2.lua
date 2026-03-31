@@ -74,11 +74,11 @@ local opts = {
 		lualine_z = { "location" },
 	},
 	tabline = {},
-	extensions = { "avante", "neo-tree", "lazy", "mason" },
+	extensions = { "avante", "lazy", "mason" },
 }
 
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "echasnovski/mini.icons" },
 	opts = opts,
 }

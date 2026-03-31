@@ -1,10 +1,21 @@
 return {
+	------------------------------ ICONS ------------------------------
+	{
+		"echasnovski/mini.icons",
+		lazy = false,
+		priority = 900,
+		config = function()
+			require("mini.icons").setup()
+			MiniIcons.mock_nvim_web_devicons()
+		end,
+	},
+
 	------------------------------ COLORTHEMES AND DECOR ------------------------------
 	-- { "catppuccin/nvim", lazy = false, name = "catppuccin", priority = 1000 },
 
 	------------------------------ WORK WITH FILES ------------------------------
 	{
-		"Pocco81/auto-save.nvim",
+		"okuuva/auto-save.nvim",
 		lazy = false,
 		-- event = "BufWritePost",
 		opts = {},

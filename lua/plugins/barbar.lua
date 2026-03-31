@@ -6,7 +6,7 @@ return {
 		"romgrk/barbar.nvim", -- Основной плагин для управления вкладками буферов
 		dependencies = {
 			"lewis6991/gitsigns.nvim", -- ОПЦИОНАЛЬНО: для отображения статуса git
-			"nvim-tree/nvim-web-devicons", -- ОПЦИОНАЛЬНО: для иконок файлов
+			"echasnovski/mini.icons",
 		},
 		init = function()
 			-- Отключаем автоматическую настройку, чтобы использовать наши параметры
@@ -39,9 +39,6 @@ return {
 						text = "undotree", -- Текст для отображения в вкладке
 						align = "center", -- Выравнивание текста (можно использовать 'left', 'center', или 'right')
 					},
-
-					-- Настройка для плагина neo-tree
-					["neo-tree"] = { event = "BufWipeout" },
 
 					-- Настройка для плагина symbols-outline
 					Outline = { event = "BufWinLeave", text = "symbols-outline", align = "right" },
